@@ -1,6 +1,5 @@
 DestinationsMS
 
-This service manages cities and seasons. It keeps everything in memory in this sprint, so you can try it without a database.
 
 Run it
 - cd DestinationsMS
