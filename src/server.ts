@@ -1,6 +1,9 @@
-import app from './app'
+import 'dotenv/config'
+import app from './app.js'
 
 const port = process.env.PORT ? Number(process.env.PORT) : 3001
-app.listen(port, () => {
-  console.log(`ms-destinations listening on http://localhost:${port}`)
+const host = process.env.HOST || '0.0.0.0'
+
+app.listen(port, host, () => {
+  console.log(`ms-destinations listening on http://${host}:${port}`)
 })

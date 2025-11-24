@@ -9,6 +9,6 @@ export type Season = {
   id: string
   city_id: string
   season_name: 'peak' | 'shoulder' | 'off'
-  start_month: number // 1-12
-  end_month: number // 1-12
+  start_month: number
+  end_month: number
 }

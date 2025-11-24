@@ -1,8 +1,9 @@
 import express from 'express'
 import cors from 'cors'
 import morgan from 'morgan'
-import citiesRouter from './routes/cities'
-import seasonsRouter from './routes/seasons'
+import citiesRouter from './routes/cities.js'
+import seasonsRouter from './routes/seasons.js'
+import jobsRouter from './routes/jobs.js'
 
 const app = express()
 app.use(cors())
@@ -15,6 +16,7 @@ app.get('/health', (_req, res) => {
 
 app.use('/cities', citiesRouter)
 app.use('/seasons', seasonsRouter)
+app.use('/jobs', jobsRouter)
 
 // 404
 app.use((_req, res) => {
