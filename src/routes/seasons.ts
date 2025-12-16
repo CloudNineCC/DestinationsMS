@@ -7,7 +7,6 @@ import type { RowDataPacket, ResultSetHeader } from 'mysql2'
 
 const router = Router()
 
-// GET /seasons
 router.get('/', async (_req: Request, res: Response) => {
   try {
     const [rows] = await db.query<RowDataPacket[]>(
@@ -20,7 +19,6 @@ router.get('/', async (_req: Request, res: Response) => {
   }
 })
 
-// POST /seasons
 router.post('/', async (req: Request, res: Response) => {
   try {
     const parsed = seasonSchema.safeParse(req.body)
@@ -42,7 +40,6 @@ router.post('/', async (req: Request, res: Response) => {
   }
 })
 
-// PUT /seasons/:id
 router.put('/:id', async (req: Request, res: Response) => {
   try {
     const id = req.params.id
@@ -97,7 +94,6 @@ router.put('/:id', async (req: Request, res: Response) => {
   }
 })
 
-// DELETE /seasons/:id
 router.delete('/:id', async (req: Request, res: Response) => {
   try {
     const [result] = await db.query<ResultSetHeader>(

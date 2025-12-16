@@ -14,7 +14,6 @@ function getBaseUrl(req: Request): string {
   return `${req.protocol}://${req.get('host')}`
 }
 
-// GET
 router.get('/', async (req: Request, res: Response) => {
   try {
     const page = Math.max(1, parseInt(req.query.page as string) || 1)
@@ -85,7 +84,6 @@ router.get('/', async (req: Request, res: Response) => {
   }
 })
 
-// GET /cities/:id
 router.get('/:id', async (req: Request, res: Response) => {
   try {
     const [rows] = await db.query<RowDataPacket[]>(
@@ -116,7 +114,6 @@ router.get('/:id', async (req: Request, res: Response) => {
   }
 })
 
-// POST /cities
 router.post('/', async (req: Request, res: Response) => {
   try {
     const parsed = citySchema.safeParse(req.body)
@@ -143,7 +140,6 @@ router.post('/', async (req: Request, res: Response) => {
   }
 })
 
-// PUT /cities/:id
 router.put('/:id', async (req: Request, res: Response) => {
   try {
     const id = req.params.id
@@ -206,7 +202,6 @@ router.put('/:id', async (req: Request, res: Response) => {
   }
 })
 
-// DELETE /cities/:id
 router.delete('/:id', async (req: Request, res: Response) => {
   try {
     const [result] = await db.query<ResultSetHeader>(
@@ -225,7 +220,6 @@ router.delete('/:id', async (req: Request, res: Response) => {
   }
 })
 
-// POST /cities/batch
 router.post('/batch', async (req: Request, res: Response) => {
   try {
     const { cities } = req.body

@@ -3,7 +3,6 @@ import { getJob } from '../async-jobs.js'
 
 const router = Router()
 
-// GET /jobs/:id
 router.get('/:id', async (req: Request, res: Response) => {
   try {
     const job = getJob(req.params.id)
@@ -35,7 +34,7 @@ router.get('/:id', async (req: Request, res: Response) => {
     if (job.status === 'completed') {
       res.status(200).json(response)
     } else if (job.status === 'failed') {
-      res.status(200).json(response) 
+      res.status(200).json(response)
     } else {
       res.status(200).json(response)
     }

@@ -26,7 +26,6 @@ app.use('/cities', citiesRouter)
 app.use('/seasons', seasonsRouter)
 app.use('/jobs', jobsRouter)
 
-// 404
 app.use((_req, res) => {
   res.status(404).json({ error: 'Not Found' })
 })

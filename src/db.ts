@@ -2,7 +2,7 @@ import mysql from 'mysql2/promise'
 
 const needsSSL = process.env.DB_HOST &&
   (process.env.DB_HOST.includes('cloudsql') ||
-   process.env.DB_HOST.match(/^\d+\.\d+\.\d+\.\d+$/)) // matches IP address pattern
+   process.env.DB_HOST.match(/^\d+\.\d+\.\d+\.\d+$/))
 
 const pool = mysql.createPool({
   host: process.env.DB_HOST || 'localhost',
